@@ -14,9 +14,6 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-  width: 100vw;
-  min-height: 100vh;
-  overflow-x: hidden;
   color: var(--white);
   background-color: var(--black);
   padding: 1rem;
@@ -29,6 +26,8 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   button {
+    border: none;
+    
     cursor: pointer;
     &:hover:not([disabled]) {
       transform: scale(1.05);

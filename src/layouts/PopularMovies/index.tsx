@@ -1,9 +1,12 @@
+import { IMovie } from "../../redux/reducers/movies/types";
 import * as St from "./styles";
 
-export default function PopularMovies() {
-  return (
-    <St.Container>
-      <p>Popular Movies</p>
-    </St.Container>
-  );
+type Props = {
+  popularMovies: IMovie[];
+  lastMovies: IMovie[];
+};
+
+export default function PopularMovies({ popularMovies, lastMovies }: Props) {
+  console.log({ popularMovies, lastMovies });
+  return <St.Container></St.Container>;
 }

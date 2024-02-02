@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import {
   Gi3DGlasses,
   GiAfrica,
@@ -25,8 +26,8 @@ import { SetStateFunction } from "../../types";
 import * as St from "./styles";
 
 type Props = {
-  isSelected: boolean;
   genre: IGenre;
+  isSelected: boolean;
   setGenre: SetStateFunction<IGenre>;
 };
 
@@ -116,7 +117,10 @@ export default function Genres({ genre, setGenre, isSelected }: Props) {
   }
 
   return (
-    <St.Genre isSelected={isSelected} onClick={() => setGenre(genre)}>
+    <St.Genre
+      isSelected={isSelected}
+      onClick={() => setGenre(genre)}
+    >
       {icon}
       <p>{genre.name}</p>
     </St.Genre>
