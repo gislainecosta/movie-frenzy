@@ -9,7 +9,7 @@ export const GlobalStyle = createGlobalStyle`
 
   :root{
   --black: #21252b;
-  --beige: #e9e4d3;
+  --blue: #b4bbd5;
   --white: #fafcff;
   }
 
@@ -19,6 +19,7 @@ export const GlobalStyle = createGlobalStyle`
   overflow-x: hidden;
   color: var(--white);
   background-color: var(--black);
+  padding: 1rem;
   }
 
   body, input, textarea, button {
@@ -27,17 +28,21 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 16px;
   }
 
-  input {
-    background-color: transparent !important;
-  }
-
   button {
+    cursor: pointer;
     &:hover:not([disabled]) {
       transform: scale(1.05);
     }
 
     &:active:not([disabled]) {
       transform: scale(0.95);
+    }
+  }
+
+  input {
+    &:focus {
+      box-shadow: 0 0 0 0;
+      border: var(--blue)
     }
   }
 
@@ -50,5 +55,19 @@ export const GlobalStyle = createGlobalStyle`
   [disabled] {
     opacity: 0.6;
     cursor: not-allowed
+  }
+
+  ::-webkit-scrollbar {
+    width: .2rem;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: #343b44;
+    border-radius: 10rem;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #b4bbd562;
+    border-radius: 10rem;
   }
 `;

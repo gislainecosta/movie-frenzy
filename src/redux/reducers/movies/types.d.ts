@@ -15,12 +15,18 @@ export interface IMovie {
   vote_count: number;
 }
 
+export interface IGenre {
+  id: number;
+  name: string;
+}
+
 export interface IMoviesState {
   movies: IMovie[];
+  genres: IGenre[];
   search: {
     string: string;
-    searchedMovies: IMovie[]
-  },
-  latestMovies: IMovie[],
-  isLoading: boolean
+    searchedMovies: IMovie[];
+  };
+  latestMovies: IMovie[];
+  isLoading: boolean;
 }

@@ -1,15 +1,20 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { handleIsLoadingMoviesAction, handleListMoviesAction, handleSearchMoviesAction,  } from "./actions";
+import {
+  handleIsLoadingMoviesAction,
+  handleListMoviesAction,
+  handleSearchMoviesAction,
+} from "./actions";
 import { IMoviesState } from "./types";
 
 const initialState: IMoviesState = {
   movies: [],
   search: {
-    string: "", 
-    searchedMovies: []
+    string: "",
+    searchedMovies: [],
   },
+  genres: [],
   latestMovies: [],
-  isLoading: false
+  isLoading: false,
 };
 
 export const moviesSlice = createSlice({
@@ -18,7 +23,7 @@ export const moviesSlice = createSlice({
   reducers: {
     handleMovies: handleListMoviesAction,
     handleSearchMovies: handleSearchMoviesAction,
-    handleIsLoadingMovies: handleIsLoadingMoviesAction
+    handleIsLoadingMovies: handleIsLoadingMoviesAction,
   },
 });
 

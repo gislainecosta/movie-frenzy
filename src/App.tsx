@@ -5,11 +5,13 @@ import Search from './pages/Search'
 import Home from './pages/Home'
 import Movie from './pages/Movie'
 import store from './redux/store';
+import Header from './layouts/Header';
 
 export default function App() {
   return (
     <Provider store={store}>
       <GlobalStyle />
+      <Header />
       <BrowserRouter>
           <Routes>
             <Route path="/search" element={<Search />} />

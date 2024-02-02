@@ -1,9 +1,9 @@
 import * as St from "./styles";
 
-export default function CategoryButton() {
+export default function PopularMovies() {
   return (
     <St.Container>
-      <p>Category Button</p>
+      <p>Popular Movies</p>
     </St.Container>
   );
 }
