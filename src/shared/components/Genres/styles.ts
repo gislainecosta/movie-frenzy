@@ -11,7 +11,8 @@ export const Genre = styled.article<PropsModal>`
   padding: 0.5rem;
   cursor: pointer;
   gap: 5%;
-  color: ${(props) => (props.isSelected ? "#21252b" : "#b4bbd5")};
-  background-color: ${(props) => (props.isSelected ? "#b4bbd5" : "#21252b")};
+  color: var(--light-blue);
+  background-color: ${(props) =>
+    props.isSelected ? "#b4bbd514" : "transparent"};
   font-weight: bold;
 `;

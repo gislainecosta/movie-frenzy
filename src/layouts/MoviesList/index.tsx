@@ -1,5 +1,5 @@
-import CardMovie from "../../components/cardMovie";
 import { IListMovie } from "../../redux/reducers/movies/types";
+import CardMovie from "../../shared/components/cardMovie";
 import * as St from "./styles";
 
 type Props = {

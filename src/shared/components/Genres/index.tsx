@@ -21,8 +21,8 @@ import {
   GiWyvern,
   GiZigzagTune,
 } from "react-icons/gi";
-import { IGenre } from "../../redux/reducers/movies/types";
-import { SetStateFunction } from "../../types";
+import { IGenre } from "../../../redux/reducers/movies/types";
+import { SetStateFunction } from "../../../types";
 import * as St from "./styles";
 
 type Props = {

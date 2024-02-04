@@ -30,8 +30,6 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   button {
-    border: none;
-    
     cursor: pointer;
     &:hover:not([disabled]) {
       transform: scale(1.05);

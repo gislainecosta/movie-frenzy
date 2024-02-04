@@ -1,4 +1,5 @@
-import { IListMovie } from "../../redux/reducers/movies/types";
+import { useNavigate } from "react-router-dom";
+import { IListMovie } from "../../../redux/reducers/movies/types";
 import * as St from "./styles";
 
 type Props = {
@@ -6,6 +7,7 @@ type Props = {
 };
 
 export default function CardMovie({ movie }: Props) {
+  const navigate = useNavigate();
   console.log(movie);
   return (
     <St.Container>

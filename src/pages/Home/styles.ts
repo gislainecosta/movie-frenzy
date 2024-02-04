@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
 export const HomeContainer = styled.div`
-  margin-top: 2rem;
+  padding: 2rem 0;
   display: flex;
   width: 100%;
 `;
 
-export const MoviesList = styled.div`
+export const MoviesGrid = styled.div`
   padding: 0 2rem;
   width: 86%;
 `;

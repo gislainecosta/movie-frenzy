@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { IoArrowUndoSharp } from "react-icons/io5";
 import { IGenre, IListMovie } from "../../redux/reducers/movies/types";
-import Genres from "../../components/Genres";
 import MoviesList from "../../layouts/MoviesList";
+import Genres from "../../shared/components/Genres";
 import * as St from "./styles";
 
 export default function Home() {
@@ -533,7 +533,7 @@ export default function Home() {
       </St.Navbar>
 
       {genre.id === 0 ? (
-        <St.MoviesList>
+        <St.MoviesGrid>
           <St.PageTitle>Visto por último</St.PageTitle>
           <MoviesList movies={lastMovies} />
 
@@ -541,9 +541,9 @@ export default function Home() {
             Filmes em destaque
           </St.PageTitle>
           <MoviesList movies={listMovies} />
-        </St.MoviesList>
+        </St.MoviesGrid>
       ) : (
-        <St.MoviesList>
+        <St.MoviesGrid>
           <St.PageTitle>
             <IoArrowUndoSharp
               style={{ cursor: "pointer" }}
@@ -552,7 +552,7 @@ export default function Home() {
             <span>Filtrado por: {genre.name}</span>
           </St.PageTitle>
           <MoviesList movies={listMovies} />
-        </St.MoviesList>
+        </St.MoviesGrid>
       )}
     </St.HomeContainer>
   );
