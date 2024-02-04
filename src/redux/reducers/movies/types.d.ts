@@ -1,4 +1,4 @@
-export interface IMovie {
+export interface IListMovie {
   adult: boolean;
   backdrop_path: string;
   genre_ids: number[];
@@ -21,12 +21,12 @@ export interface IGenre {
 }
 
 export interface IMoviesState {
-  movies: IMovie[];
+  movies: IListMovie[];
   genres: IGenre[];
   search: {
     string: string;
-    searchedMovies: IMovie[];
+    searchedMovies: IListMovie[];
   };
-  latestMovies: IMovie[];
+  latestMovies: IListMovie[];
   isLoading: boolean;
 }

@@ -1,3 +1,6 @@
+import Rating from "@mui/material/Rating";
+import Stack from "@mui/material/Stack";
+import { MdStar } from "react-icons/md";
 import * as St from "./styles";
 
 export default function Movie() {
@@ -80,17 +83,44 @@ export default function Movie() {
     tagline: "O som vibrante da vingança!",
     title: "Kill Bill: Volume 1",
     video: false,
-    vote_average: 7.97,
+    vote_average: 7,
     vote_count: 16554,
   };
+
+  const genres = movie.genres.map((genre) => {
+    return <p key={genre.id}>| {genre.name}&nbsp;</p>;
+  });
 
   return (
     <St.Container>
       <St.Poster src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} />
       <St.Details>
-        <p>{movie.title}</p>
-        <p>{movie.overview}</p>
+        <St.Title>
+          {movie.title}
+          <span>({movie.original_title})</span>
+        </St.Title>
+        <p>{movie.tagline}</p>
+        <St.Info>
+          <p>{movie.release_date.substring(0, 4)}&nbsp;</p>
+          <p>| {movie.runtime} minutos&nbsp;</p>
+          {genres}
+        </St.Info>
+        <Stack>
+          <Rating
+            name="half-rating-read"
+            defaultValue={movie.vote_average / 2}
+            precision={0.1}
+            readOnly
+            emptyIcon={
+              <MdStar style={{ color: "var(--light-blue)", opacity: 0.5 }} />
+            }
+          />
+        </Stack>
+        <St.Description>{movie.overview}</St.Description>
       </St.Details>
+      <St.Player>
+        <p>Trilha Sonora</p>
+      </St.Player>
     </St.Container>
   );
 }

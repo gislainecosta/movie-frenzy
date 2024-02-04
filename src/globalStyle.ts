@@ -9,6 +9,7 @@ export const GlobalStyle = createGlobalStyle`
 
   :root{
   --black: #21252b;
+  --light-blue: #b4bbd583;
   --blue: #b4bbd5;
   --white: #fafcff;
   }
@@ -16,7 +17,10 @@ export const GlobalStyle = createGlobalStyle`
   body {
   color: var(--white);
   background-color: var(--black);
-  padding: 1rem;
+  padding: 2rem;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
   }
 
   body, input, textarea, button {

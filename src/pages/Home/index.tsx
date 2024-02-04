@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { IoArrowUndoSharp } from "react-icons/io5";
-import PopularMovies from "../../layouts/PopularMovies";
-import { IGenre, IMovie } from "../../redux/reducers/movies/types";
+import { IGenre, IListMovie } from "../../redux/reducers/movies/types";
 import Genres from "../../components/Genres";
 import MoviesList from "../../layouts/MoviesList";
 import * as St from "./styles";
@@ -91,7 +90,7 @@ export default function Home() {
     },
   ];
 
-  const listMovies: IMovie[] = [
+  const listMovies: IListMovie[] = [
     {
       adult: false,
       backdrop_path: "/sdh76YtGseZHPk4WiOJjMzKKFSB.jpg",
@@ -432,7 +431,7 @@ export default function Home() {
     },
   ];
 
-  const lastMovies: IMovie[] = [
+  const lastMovies: IListMovie[] = [
     {
       adult: false,
       backdrop_path: "/a0GM57AnJtNi7lMOCamniiyV10W.jpg",

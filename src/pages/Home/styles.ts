@@ -12,13 +12,12 @@ export const MoviesList = styled.div`
 `;
 
 export const Navbar = styled.nav`
-  height: 100%;
   width: 14%;
-  overflow-y: scroll;
   padding-right: 1rem;
   gap: 0.5rem;
   display: flex;
   flex-direction: column;
+  border-right: 1px solid var(--light-blue);
 `;
 
 export const PageTitle = styled.p`

@@ -12,12 +12,6 @@ export const Poster = styled.img`
   width: 100%;
 `;
 
-export const Range = styled.p`
-  span {
-    margin-left: 0.5rem;
-  }
-`;
-
 export const Title = styled.p`
   font-weight: bold;
   text-align: center;
@@ -31,4 +25,5 @@ export const Button = styled.button`
   border-radius: 1rem;
   font-weight: bold;
   width: 90%;
+  font-size: 0.9rem;
 `;

@@ -1,9 +1,8 @@
-import { BsFillStarFill } from "react-icons/bs";
-import { IMovie } from "../../redux/reducers/movies/types";
+import { IListMovie } from "../../redux/reducers/movies/types";
 import * as St from "./styles";
 
 type Props = {
-  movie: IMovie;
+  movie: IListMovie;
 };
 
 export default function CardMovie({ movie }: Props) {
@@ -12,10 +11,7 @@ export default function CardMovie({ movie }: Props) {
     <St.Container>
       <St.Poster src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} />
       <St.Title>{movie.title}</St.Title>
-      <St.Range>
-        <BsFillStarFill style={{ color: "yellow" }} />
-        <span>{movie.vote_average}</span>
-      </St.Range>
+      <p>{movie.release_date.substring(0, 4)}</p>
       <St.Button>+ Detalhes</St.Button>
     </St.Container>
   );

@@ -1,9 +1,9 @@
 import CardMovie from "../../components/cardMovie";
-import { IMovie } from "../../redux/reducers/movies/types";
+import { IListMovie } from "../../redux/reducers/movies/types";
 import * as St from "./styles";
 
 type Props = {
-  movies: IMovie[];
+  movies: IListMovie[];
 };
 
 export default function MoviesList({ movies }: Props) {

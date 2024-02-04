@@ -1,10 +1,10 @@
 import { PayloadAction } from "@reduxjs/toolkit";
-import { IMovie, IMoviesState } from "./types";
+import { IListMovie, IMoviesState } from "./types";
 
 export const handleListMoviesAction = (
   state: IMoviesState,
   action: PayloadAction<{
-    value: IMovie[];
+    value: IListMovie[];
   }>,
 ) => {
   const { value } = action.payload;
@@ -14,7 +14,7 @@ export const handleListMoviesAction = (
 export const handleSearchMoviesAction = (
   state: IMoviesState,
   action: PayloadAction<{
-    value: { string: string; searchedMovies: IMovie[] };
+    value: { string: string; searchedMovies: IListMovie[] };
   }>,
 ) => {
   const { value } = action.payload;
