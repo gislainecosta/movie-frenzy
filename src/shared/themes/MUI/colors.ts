@@ -21,15 +21,9 @@ const withAlphas = (color: IColorTheme) => {
 };
 
 export const neutral = {
-  50: "#F8F9FA",
-  100: "#F3F4F6",
-  200: "#E5E7EB",
-  300: "#D2D6DB",
-  400: "#9DA4AE",
-  500: "#6C737F",
-  600: "#4D5761",
-  700: "#2F3746",
-  800: "#263249",
+  50: "#f8fcff",
+  400: "#d5dfee",
+  800: "#474d57",
   900: "#21252b",
 };
 
@@ -37,7 +31,7 @@ export const blue = withAlphas({
   lightest: "#fafcff",
   light: "#b4bbd583",
   main: "#b4bbd5",
-  dark: "#0c1741",
+  dark: "#02081d",
   contrastText: "#fafcff",
 });
 

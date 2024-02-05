@@ -7,9 +7,10 @@ export const Container = styled.div`
 
 export const Logo = styled.img`
   width: 13rem;
+  cursor: pointer;
 `;
 
-export const Form = styled.form`
+export const Search = styled.section`
   display: flex;
   gap: 0.5rem;
 `;

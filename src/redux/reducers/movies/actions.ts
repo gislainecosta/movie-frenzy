@@ -1,31 +1,58 @@
 import { PayloadAction } from "@reduxjs/toolkit";
 import { IListMovie, IMoviesState } from "./types";
 
-export const handleListMoviesAction = (
+export const handleListPopularMoviesAction = (
   state: IMoviesState,
-  action: PayloadAction<{
-    value: IListMovie[];
-  }>,
+  action: PayloadAction<IListMovie[]>,
 ) => {
-  const { value } = action.payload;
-  state.movies = value;
+  state.popularMovies = action.payload;
 };
 
 export const handleSearchMoviesAction = (
   state: IMoviesState,
   action: PayloadAction<{
-    value: { string: string; searchedMovies: IListMovie[] };
+    string: string;
+    searchedMovies: IListMovie[];
+    page: number;
+    totalPages: number;
   }>,
 ) => {
-  const { value } = action.payload;
-  state.search = value;
+  state.search = action.payload;
 };
 
-export const handleIsLoadingMoviesAction = (
+export const handleSearchPageMoviesAction = (
   state: IMoviesState,
   action: PayloadAction<{
-    value: boolean;
+    searchedMovies: IListMovie[];
+    page: number;
   }>,
 ) => {
-  state.isLoading = action.payload.value;
+  const { searchedMovies, page } = action.payload;
+  state.search.searchedMovies = searchedMovies;
+  state.search.page = page;
+};
+
+export const handleGenrePageMoviesAction = (
+  state: IMoviesState,
+  action: PayloadAction<{
+    genreMovies: IListMovie[];
+    page: number;
+  }>,
+) => {
+  const { genreMovies, page } = action.payload;
+  state.genre.genreMovies = genreMovies;
+  state.genre.page = page;
+};
+
+export const handleGenreMoviesAction = (
+  state: IMoviesState,
+  action: PayloadAction<{
+    name: string;
+    id: number;
+    genreMovies: IListMovie[];
+    page: number;
+    totalPages: number;
+  }>,
+) => {
+  state.genre = action.payload;
 };

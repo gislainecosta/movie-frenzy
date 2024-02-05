@@ -1,30 +1,47 @@
 import { createSlice } from "@reduxjs/toolkit";
 import {
-  handleIsLoadingMoviesAction,
-  handleListMoviesAction,
+  handleGenreMoviesAction,
+  handleGenrePageMoviesAction,
+  handleListPopularMoviesAction,
   handleSearchMoviesAction,
+  handleSearchPageMoviesAction,
 } from "./actions";
 import { IMoviesState } from "./types";
 
 const initialState: IMoviesState = {
-  movies: [],
+  popularMovies: [],
   search: {
     string: "",
     searchedMovies: [],
+    page: 1,
+    totalPages: 1,
   },
-  genres: [],
+  genre: {
+    name: "",
+    id: 0,
+    genreMovies: [],
+    page: 1,
+    totalPages: 1,
+  },
   latestMovies: [],
-  isLoading: false,
 };
 
 export const moviesSlice = createSlice({
   name: "movies",
   initialState,
   reducers: {
-    handleMovies: handleListMoviesAction,
+    handlePopularMovies: handleListPopularMoviesAction,
     handleSearchMovies: handleSearchMoviesAction,
-    handleIsLoadingMovies: handleIsLoadingMoviesAction,
+    handleSearchPageMovies: handleSearchPageMoviesAction,
+    handleGenresMovies: handleGenreMoviesAction,
+    handleGenrePageMovies: handleGenrePageMoviesAction,
   },
 });
 
-export const { handleMovies } = moviesSlice.actions;
+export const {
+  handlePopularMovies,
+  handleSearchMovies,
+  handleGenresMovies,
+  handleSearchPageMovies,
+  handleGenrePageMovies,
+} = moviesSlice.actions;

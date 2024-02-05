@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import {
   Gi3DGlasses,
   GiAfrica,
@@ -21,18 +20,38 @@ import {
   GiWyvern,
   GiZigzagTune,
 } from "react-icons/gi";
-import { IGenre } from "../../../redux/reducers/movies/types";
-import { SetStateFunction } from "../../../types";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { IGenre } from "../../redux/reducers/movies/types";
+import { RootState } from "../../redux/store";
+import { handleGenresMovies } from "../../redux/reducers/movies/reducers";
+import { fetchGenreMovies } from "../../layouts/MoviesGenre/genre";
 import * as St from "./styles";
 
 type Props = {
   genre: IGenre;
-  isSelected: boolean;
-  setGenre: SetStateFunction<IGenre>;
 };
 
-export default function Genres({ genre, setGenre, isSelected }: Props) {
+export default function Genres({ genre }: Props) {
+  const dispatch = useDispatch();
+  const { movies } = useSelector((state: RootState) => state);
   let icon;
+
+  const handleGenre = () => {
+    fetchGenreMovies(genre.id, 1)
+      .then((data) => {
+        const payload = {
+          name: genre.name,
+          id: genre.id,
+          genreMovies: data.results,
+          page: 1,
+          totalPages: data.total_pages,
+        };
+        console.log({ payload });
+        dispatch(handleGenresMovies(payload));
+      })
+      .catch((err) => console.log(err));
+  };
 
   switch (genre.name) {
     case "Ação":
@@ -118,8 +137,8 @@ export default function Genres({ genre, setGenre, isSelected }: Props) {
 
   return (
     <St.Genre
-      isSelected={isSelected}
-      onClick={() => setGenre(genre)}
+      isSelected={movies.genre.id === genre.id}
+      onClick={() => handleGenre()}
     >
       {icon}
       <p>{genre.name}</p>

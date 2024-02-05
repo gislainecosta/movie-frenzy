@@ -16,8 +16,8 @@ export default function App() {
     <ThemeProvider theme={theme}>
       <Provider store={store}>
         <GlobalStyle />
-        <Header />
         <BrowserRouter>
+          <Header />
           <Routes>
             <Route path="/search" element={<Search />} />
             <Route path="movie/:id" element={<Movie />} />

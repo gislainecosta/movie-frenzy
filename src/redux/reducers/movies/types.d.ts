@@ -21,12 +21,19 @@ export interface IGenre {
 }
 
 export interface IMoviesState {
-  movies: IListMovie[];
-  genres: IGenre[];
+  popularMovies: IListMovie[];
+  genre: {
+    name: string;
+    id: number;
+    genreMovies: IListMovie[];
+    page: number;
+    totalPages: number;
+  };
   search: {
     string: string;
     searchedMovies: IListMovie[];
+    page: number;
+    totalPages: number;
   };
   latestMovies: IListMovie[];
-  isLoading: boolean;
 }

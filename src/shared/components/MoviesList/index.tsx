@@ -1,5 +1,5 @@
-import { IListMovie } from "../../redux/reducers/movies/types";
-import CardMovie from "../../shared/components/cardMovie";
+import { IListMovie } from "../../../redux/reducers/movies/types";
+import CardMovie from "../cardMovie";
 import * as St from "./styles";
 
 type Props = {
@@ -7,7 +7,6 @@ type Props = {
 };
 
 export default function MoviesList({ movies }: Props) {
-  console.log({ movies });
   return (
     <St.Movies>
       {movies.map((movie) => {

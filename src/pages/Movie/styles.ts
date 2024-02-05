@@ -1,9 +1,13 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  padding: 4rem 0;
+  padding: 1rem 0 2rem 0;
+`;
+
+export const Movie = styled.div`
   display: flex;
   justify-content: space-between;
+  margin-top: 1rem;
 `;
 
 export const Poster = styled.img`
@@ -42,9 +46,4 @@ export const Player = styled.section`
 export const Title = styled.p`
   font-weight: bold;
   font-size: 2rem;
-
-  span {
-    font-size: 1rem;
-    margin-left: 1%;
-  }
 `;

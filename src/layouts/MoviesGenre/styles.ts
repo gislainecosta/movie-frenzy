@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-  padding: 2rem 0;
+export const MoviesGrid = styled.div`
+  padding: 0 2rem;
+  width: 86%;
   display: flex;
   flex-direction: column;
   align-items: center;

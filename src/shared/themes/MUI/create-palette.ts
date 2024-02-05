@@ -5,7 +5,7 @@ import { error, blue, info, neutral, success, warning } from "./colors";
 export function createPalette() {
   return {
     action: {
-      active: neutral[500],
+      active: neutral[400],
       disabled: alpha(neutral[900], 0.38),
       disabledBackground: alpha(neutral[900], 0.12),
       focus: alpha(neutral[900], 0.16),
@@ -25,7 +25,7 @@ export function createPalette() {
     success,
     text: {
       primary: neutral[900],
-      secondary: neutral[500],
+      secondary: neutral[400],
       disabled: alpha(neutral[900], 0.38),
     },
     warning,

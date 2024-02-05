@@ -1,14 +1,13 @@
 import styled from "styled-components";
 
+interface Props {
+  isSelected: boolean;
+}
+
 export const HomeContainer = styled.div`
   padding: 2rem 0;
   display: flex;
   width: 100%;
-`;
-
-export const MoviesGrid = styled.div`
-  padding: 0 2rem;
-  width: 86%;
 `;
 
 export const Navbar = styled.nav`
@@ -20,12 +19,15 @@ export const Navbar = styled.nav`
   border-right: 1px solid var(--light-blue);
 `;
 
-export const PageTitle = styled.p`
+export const Genre = styled.article<Props>`
+  display: flex;
+  border-radius: 1rem;
+  align-items: center;
+  padding: 0.5rem;
+  cursor: pointer;
+  gap: 5%;
+  color: var(--light-blue);
+  background-color: ${(props) =>
+    props.isSelected ? "#b4bbd514" : "transparent"};
   font-weight: bold;
-  margin-bottom: 2rem;
-  font-size: 1.4rem;
-
-  span {
-    margin-left: 1rem;
-  }
 `;
