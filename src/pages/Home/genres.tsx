@@ -47,7 +47,6 @@ export default function Genres({ genre }: Props) {
           page: 1,
           totalPages: data.total_pages,
         };
-        console.log({ payload });
         dispatch(handleGenresMovies(payload));
       })
       .catch((err) => console.log(err));

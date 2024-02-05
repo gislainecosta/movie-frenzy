@@ -2,11 +2,11 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
-  gap: 18rem;
+  gap: 14rem;
 `;
 
 export const Logo = styled.img`
-  width: 13rem;
+  height: 3rem;
   cursor: pointer;
 `;
 

@@ -56,3 +56,13 @@ export const handleGenreMoviesAction = (
 ) => {
   state.genre = action.payload;
 };
+
+export const handleLatestMoviesAction = (
+  state: IMoviesState,
+  action: PayloadAction<IListMovie>,
+) => {
+  if (state.latestMovies.length === 7) {
+    state.latestMovies.pop();
+  }
+  state.latestMovies.unshift(action.payload);
+};

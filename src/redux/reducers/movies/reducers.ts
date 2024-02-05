@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import {
   handleGenreMoviesAction,
   handleGenrePageMoviesAction,
+  handleLatestMoviesAction,
   handleListPopularMoviesAction,
   handleSearchMoviesAction,
   handleSearchPageMoviesAction,
@@ -35,6 +36,7 @@ export const moviesSlice = createSlice({
     handleSearchPageMovies: handleSearchPageMoviesAction,
     handleGenresMovies: handleGenreMoviesAction,
     handleGenrePageMovies: handleGenrePageMoviesAction,
+    handleLatestMovies: handleLatestMoviesAction,
   },
 });
 
@@ -44,4 +46,5 @@ export const {
   handleGenresMovies,
   handleSearchPageMovies,
   handleGenrePageMovies,
+  handleLatestMovies,
 } = moviesSlice.actions;
