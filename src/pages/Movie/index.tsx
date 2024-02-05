@@ -5,6 +5,7 @@ import { IoArrowUndoSharp } from "react-icons/io5";
 import { useNavigate, useParams } from "react-router";
 import { useEffect, useState } from "react";
 import { MoviesService } from "../../services/movies/MovieService";
+import DefaultImg from "../../assets/error.jpg";
 import * as St from "./styles";
 import { IMovie } from "./types";
 
@@ -38,7 +39,11 @@ export default function Movie() {
       />
       <St.Movie>
         <St.Poster
-          src={`https://image.tmdb.org/t/p/w500${movie?.poster_path}`}
+          src={
+            movie?.poster_path
+              ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+              : DefaultImg
+          }
         />
         <St.Details>
           <St.Title>{movie?.title}</St.Title>

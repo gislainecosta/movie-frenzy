@@ -9,12 +9,18 @@ export const Container = styled.div`
 `;
 
 export const Poster = styled.img`
-  width: 100%;
+  height: 11rem;
+  max-width: 100%;
 `;
 
 export const Title = styled.p`
   font-weight: bold;
   text-align: center;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; /* Definimos quantas linhas queremos */
+  display: -webkit-box;
+  overflow: hidden;
+  width: 100%; /* Definimos o tamanho máximo do nosso container*/
 `;
 
 export const Button = styled.button`

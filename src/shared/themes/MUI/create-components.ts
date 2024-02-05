@@ -49,5 +49,12 @@ export function createComponents(config: { palette: any }) {
         },
       },
     },
+    MuiTooltip: {
+      styleOverrides: {
+        tooltip: {
+          color: palette.primary.lightest,
+        },
+      },
+    },
   };
 }
