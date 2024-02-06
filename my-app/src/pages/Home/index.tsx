@@ -39,6 +39,15 @@ export default function Home() {
     dispatch(handleLogin(payload));
   }, [dispatch, location]);
 
+  const fetchGetToken = async () => {
+    const response = await fetch("/auth/token");
+
+    console.log({ response });
+
+    const json = await response.json();
+    console.log("OLHA O TOKEN", json.access_token);
+  };
+
   const fetchPopularMovies = async () => {
     const response = await MoviesService.getPopularMovies();
     return response.data.results;
@@ -50,6 +59,11 @@ export default function Home() {
   };
 
   useMemo(() => {
+    fetchGetToken()
+      .then((token) => {
+        console.log(token);
+      })
+      .catch((err) => console.log(err));
     fetchPopularMovies()
       .then((data) => {
         dispatch(handlePopularMovies(data));

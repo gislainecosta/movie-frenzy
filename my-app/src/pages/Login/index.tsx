@@ -12,7 +12,7 @@ export default function Login() {
       </St.Title>
       <Button
         startIcon={<FaSpotify style={{ fontSize: "3rem" }} />}
-        href="http://localhost:8888"
+        href="/auth/login"
         sx={{
           backgroundColor: "#25d864",
           color: "primary.dark",

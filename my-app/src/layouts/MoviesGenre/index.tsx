@@ -27,10 +27,7 @@ export default function MoviesGenre() {
   return (
     <St.MoviesGrid>
       <St.PageTitle>
-        <IoArrowUndoSharp
-          style={{ cursor: "pointer" }}
-          onClick={() => console.log("clicou aqui")}
-        />
+        <IoArrowUndoSharp style={{ cursor: "pointer" }} />
         <span>Filtrado por: {moviesGenre.name}</span>
       </St.PageTitle>
       <MoviesList movies={moviesGenre.genreMovies} />

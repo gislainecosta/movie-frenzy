@@ -15,8 +15,6 @@ export default function Header() {
   const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
 
-  console.log(pathname);
-
   const searchMovie = () => {
     if (movieSearch !== "") {
       const string = movieSearch.trim().toLowerCase();
