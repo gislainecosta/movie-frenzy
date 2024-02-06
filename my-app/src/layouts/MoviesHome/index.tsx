@@ -4,8 +4,7 @@ import { RootState } from "../../redux/store";
 import * as St from "./styles";
 
 export default function MoviesHome() {
-  const { movies } = useSelector((state: RootState) => state);
-  console.log(movies.latestMovies);
+  const movies = useSelector((state: RootState) => state.movies);
   return (
     <St.MoviesGrid>
       {movies.latestMovies.length !== 0 && (

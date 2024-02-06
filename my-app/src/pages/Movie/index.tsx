@@ -6,6 +6,7 @@ import { useNavigate, useParams } from "react-router";
 import { useEffect, useState } from "react";
 import { MoviesService } from "../../services/movies/MovieService";
 import DefaultImg from "../../assets/error.jpg";
+import Player from "../../layouts/Palyer";
 import * as St from "./styles";
 import { IMovie } from "./types";
 
@@ -68,9 +69,7 @@ export default function Movie() {
           </Stack>
           <St.Description>{movie?.overview}</St.Description>
         </St.Details>
-        <St.Player>
-          <p>Trilha Sonora</p>
-        </St.Player>
+        {movie && <Player movieName={movie.original_title} />}
       </St.Movie>
     </St.Container>
   );

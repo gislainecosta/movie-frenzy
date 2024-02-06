@@ -9,6 +9,8 @@ module.exports = {
   parserOptions: {
     'ecmaVersion': 'latest',
     'sourceType': 'module',
+    project: 'tsconfig.json',
+    tsconfigRootDir : __dirname,
     'jsx': true,
     'project': ['tsconfig.json', 'tsconfig.node.json']
   },
@@ -67,7 +69,7 @@ module.exports = {
         'argsIgnorePattern': '^_'
       }
     ],
-    'prettier/prettier': ['warn'],
+    'prettier/prettier': ['error', { 'endOfLine': 'auto' }],
     'spaced-comment': 'off',
     'prefer-destructuring': 'off',
     'prefer-promise-reject-errors': 'off',

@@ -8,7 +8,7 @@ import * as St from "./styles";
 import { fetchGenreMovies } from "./genre";
 
 export default function MoviesGenre() {
-  const { movies } = useSelector((state: RootState) => state);
+  const movies = useSelector((state: RootState) => state.movies);
   const dispatch = useDispatch<AppDispatch>();
   const moviesGenre = movies.genre;
 

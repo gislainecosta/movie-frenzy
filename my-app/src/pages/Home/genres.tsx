@@ -34,7 +34,7 @@ type Props = {
 
 export default function Genres({ genre }: Props) {
   const dispatch = useDispatch();
-  const { movies } = useSelector((state: RootState) => state);
+  const movies = useSelector((state: RootState) => state.movies);
   let icon;
 
   const handleGenre = () => {

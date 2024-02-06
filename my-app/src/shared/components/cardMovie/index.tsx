@@ -16,7 +16,7 @@ export default function CardMovie({ movie }: Props) {
   const navigate = useNavigate();
 
   const goToMovie = () => {
-    navigate(`movie/${movie.id}`);
+    navigate(`/movie/${movie.id}`);
     dispatch(handleLatestMovies(movie));
   };
 

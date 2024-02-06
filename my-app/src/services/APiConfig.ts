@@ -5,3 +5,9 @@ export const MoviesApi = () => {
     baseURL: "https://api.themoviedb.org/3",
   });
 };
+
+export const SpotifyApi = () => {
+  return axios.create({
+    baseURL: "https://api.spotify.com/v1/",
+  });
+};

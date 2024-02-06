@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import Movie from "./pages/Movie";
 import store from "./redux/store";
 import Header from "./layouts/Header";
+import Login from "./pages/Login";
 
 export default function App() {
   const theme = createTheme();
@@ -19,11 +20,12 @@ export default function App() {
         <BrowserRouter>
           <Header />
           <Routes>
+            <Route path="/" element={<Login />} />
             <Route path="/search" element={<Search />} />
             <Route path="movie/:id" element={<Movie />} />
-            <Route path="/" element={<Home />} />
+            <Route path="/home" element={<Home />} />
 
-            <Route path="*" element={<Navigate to="/" />} />
+            <Route path="*" element={<Navigate to="/home" />} />
           </Routes>
         </BrowserRouter>
       </Provider>

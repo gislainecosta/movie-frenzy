@@ -13,7 +13,7 @@ export default function Search() {
   const [pageTitle, setPageTitle] = useState<string>("");
   const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
-  const { movies } = useSelector((state: RootState) => state);
+  const movies = useSelector((state: RootState) => state.movies);
   const search = movies.search;
 
   useEffect(() => {
@@ -41,7 +41,7 @@ export default function Search() {
       <St.PageTitle>
         <IoArrowUndoSharp
           style={{ cursor: "pointer" }}
-          onClick={() => navigate("/")}
+          onClick={() => navigate("/home")}
         />
         <span>{pageTitle}</span>
       </St.PageTitle>

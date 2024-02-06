@@ -35,7 +35,7 @@ export default function Header() {
 
   return (
     <St.Container>
-      <St.Logo onClick={() => navigate("/")} src={Logo} alt="Logo" />
+      <St.Logo onClick={() => navigate("/home")} src={Logo} alt="Logo" />
       <St.Search>
         <St.Input
           placeholder="Busca por filmes"

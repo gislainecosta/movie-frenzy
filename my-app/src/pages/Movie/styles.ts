@@ -30,19 +30,6 @@ export const Info = styled.section`
   margin: 1rem 0 0.4rem 0;
 `;
 
-export const Player = styled.section`
-  display: flex;
-  flex-direction: column;
-  border: 1px solid var(--light-blue);
-  width: 25%;
-  padding: 1rem;
-
-  > p {
-    font-weight: bold;
-    text-align: center;
-  }
-`;
-
 export const Title = styled.p`
   font-weight: bold;
   font-size: 2rem;
