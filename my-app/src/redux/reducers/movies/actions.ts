@@ -61,8 +61,12 @@ export const handleLatestMoviesAction = (
   state: IMoviesState,
   action: PayloadAction<IListMovie>,
 ) => {
-  if (state.latestMovies.length === 7) {
-    state.latestMovies.pop();
-  }
-  state.latestMovies.unshift(action.payload);
+  const newList = state.latestMovies.filter((movie) => {
+    return movie.id !== action.payload.id;
+  });
+
+  newList.length === 7 && newList.pop();
+  newList.unshift(action.payload);
+
+  state.latestMovies = newList;
 };

@@ -1,6 +1,6 @@
 import { BiSearchAlt2 } from "react-icons/bi";
 import Fab from "@mui/material/Fab";
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import Logo from "../../assets/logo.png";
@@ -10,9 +10,12 @@ import { handleSearchMovies } from "../../redux/reducers/movies/reducers";
 import * as St from "./styles";
 
 export default function Header() {
+  const { pathname } = useLocation();
   const [movieSearch, setMovieSearch] = useState<string>("");
   const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
+
+  console.log(pathname);
 
   const searchMovie = () => {
     if (movieSearch !== "") {
@@ -36,19 +39,21 @@ export default function Header() {
   return (
     <St.Container>
       <St.Logo onClick={() => navigate("/home")} src={Logo} alt="Logo" />
-      <St.Search>
-        <St.Input
-          placeholder="Busca por filmes"
-          value={movieSearch}
-          onChange={(e) => setMovieSearch(e.target.value)}
-          onKeyDown={(e) => {
-            e.key === "Enter" && searchMovie();
-          }}
-        />
-        <Fab onClick={searchMovie} aria-label="search">
-          <BiSearchAlt2 style={{ fontSize: "2rem" }} />
-        </Fab>
-      </St.Search>
+      {pathname !== "/" && (
+        <St.Search>
+          <St.Input
+            placeholder="Busca por filmes"
+            value={movieSearch}
+            onChange={(e) => setMovieSearch(e.target.value)}
+            onKeyDown={(e) => {
+              e.key === "Enter" && searchMovie();
+            }}
+          />
+          <Fab onClick={searchMovie} aria-label="search">
+            <BiSearchAlt2 style={{ fontSize: "2rem" }} />
+          </Fab>
+        </St.Search>
+      )}
     </St.Container>
   );
 }

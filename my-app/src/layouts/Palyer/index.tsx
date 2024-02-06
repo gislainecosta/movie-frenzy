@@ -38,8 +38,8 @@ export default function Player({ movieName }: IProps) {
           it.name.includes("Soundtrack"),
         );
         fetchGetPlayList(playList[0].id)
-          .then((data) => {
-            setMoviePlayList(data);
+          .then((list) => {
+            setMoviePlayList(list);
           })
           .catch((err) => console.log(err));
       })
