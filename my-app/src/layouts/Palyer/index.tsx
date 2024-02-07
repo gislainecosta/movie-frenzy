@@ -1,6 +1,7 @@
 /* eslint-disable prefer-const */
 import { useSelector } from "react-redux";
-import { useMemo, useState } from "react";
+import { useEffect, useLayoutEffect, useMemo, useState } from "react";
+import CircularProgress from "@mui/material/CircularProgress";
 import {
   getListSoundtrack,
   getSoundtrackByID,
@@ -8,6 +9,7 @@ import {
 import { RootState } from "../../redux/store";
 import * as St from "./styles";
 import { IPlayList } from "./types";
+import PlayList from "./playList";
 
 interface IProps {
   movieName: string;
@@ -16,7 +18,7 @@ interface IProps {
 export default function Player({ movieName }: IProps) {
   const spotify = useSelector((state: RootState) => state.spotify);
   const [moviePlayList, setMoviePlayList] = useState<IPlayList>();
-  const isLogged = !!spotify.user.access_token;
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   const fetchGetMoviePlayLists = async () => {
     const response = await getListSoundtrack(
@@ -31,7 +33,15 @@ export default function Player({ movieName }: IProps) {
     return response.data;
   };
 
+  const renderList = () => {
+    if (isLoading) return <CircularProgress sx={{ width: 100 }} />;
+    if (!isLoading && moviePlayList)
+      return <PlayList playList={moviePlayList} />;
+    return <p>Infelizmente não encontramos uma playlist</p>;
+  };
+
   useMemo(() => {
+    setIsLoading(true);
     fetchGetMoviePlayLists()
       .then((data) => {
         const playList = data.items.filter((it: IPlayList) =>
@@ -43,17 +53,10 @@ export default function Player({ movieName }: IProps) {
           })
           .catch((err) => console.log(err));
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err))
+      .finally(() => setIsLoading(false));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return (
-    <St.Container>
-      {isLogged && moviePlayList ? (
-        <>{moviePlayList.name}</>
-      ) : (
-        <p>Por favor, faça Login no Spotify</p>
-      )}
-    </St.Container>
-  );
+  return <St.Container>{renderList()}</St.Container>;
 }

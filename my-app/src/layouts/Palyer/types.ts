@@ -24,6 +24,7 @@ export interface IPlayListOwner {
 export interface IPlayListTracks {
   href: string;
   total: number;
+  items: any;
 }
 
 export interface IPlayList {

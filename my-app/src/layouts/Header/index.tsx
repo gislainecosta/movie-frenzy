@@ -6,7 +6,10 @@ import { useDispatch } from "react-redux";
 import Logo from "../../assets/logo.png";
 import { fetchSearchMovies } from "../../pages/Search/search";
 import { AppDispatch } from "../../redux/store";
-import { handleSearchMovies } from "../../redux/reducers/movies/reducers";
+import {
+  handleSearchMovies,
+  resetGenresState,
+} from "../../redux/reducers/movies/reducers";
 import * as St from "./styles";
 
 export default function Header() {
@@ -34,9 +37,14 @@ export default function Header() {
     }
   };
 
+  const handleGoHome = () => {
+    dispatch(resetGenresState());
+    navigate("/home");
+  };
+
   return (
     <St.Container>
-      <St.Logo onClick={() => navigate("/home")} src={Logo} alt="Logo" />
+      <St.Logo onClick={handleGoHome} src={Logo} alt="Logo" />
       {pathname !== "/" && (
         <St.Search>
           <St.Input

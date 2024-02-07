@@ -37,6 +37,9 @@ export const moviesSlice = createSlice({
     handleGenresMovies: handleGenreMoviesAction,
     handleGenrePageMovies: handleGenrePageMoviesAction,
     handleLatestMovies: handleLatestMoviesAction,
+    resetGenresState: (state) => {
+      Object.assign(state.genre, initialState.genre);
+    },
   },
 });
 
@@ -47,4 +50,5 @@ export const {
   handleSearchPageMovies,
   handleGenrePageMovies,
   handleLatestMovies,
+  resetGenresState,
 } = moviesSlice.actions;

@@ -4,17 +4,23 @@ import { MdStar } from "react-icons/md";
 import { IoArrowUndoSharp } from "react-icons/io5";
 import { useNavigate, useParams } from "react-router";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import Button from "@mui/material/Button";
+import { FaSpotify } from "react-icons/fa";
 import { MoviesService } from "../../services/movies/MovieService";
 import DefaultImg from "../../assets/error.jpg";
 import Player from "../../layouts/Palyer";
+import { RootState } from "../../redux/store";
 import * as St from "./styles";
 import { IMovie } from "./types";
 
 export default function Movie() {
   const [movie, setMovie] = useState<IMovie>();
   const [movieNote, setMovieNote] = useState<number>(0);
+  const spotify = useSelector((state: RootState) => state.spotify);
   const { id } = useParams();
   const navigate = useNavigate();
+  const isLogged = !!spotify.user.access_token;
 
   const fetchMovie = async () => {
     const movieId = Number(id);
@@ -69,7 +75,31 @@ export default function Movie() {
           </Stack>
           <St.Description>{movie?.overview}</St.Description>
         </St.Details>
-        {movie && <Player movieName={movie.original_title} />}
+        {movie && (
+          <St.Player>
+            {isLogged ? (
+              <Player movieName={movie.original_title} />
+            ) : (
+              <St.Login>
+                <p>Você não está logado</p>
+                <Button
+                  startIcon={<FaSpotify style={{ fontSize: "1rem" }} />}
+                  href="http://localhost:8888"
+                  sx={{
+                    backgroundColor: "#25d864",
+                    color: "primary.dark",
+                    fontSize: 18,
+                    fontWeight: "bold",
+                    padding: "0.5rem",
+                    width: "80%",
+                  }}
+                >
+                  Entrar com Spotify
+                </Button>
+              </St.Login>
+            )}
+          </St.Player>
+        )}
       </St.Movie>
     </St.Container>
   );

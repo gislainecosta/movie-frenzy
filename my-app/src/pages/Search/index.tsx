@@ -5,7 +5,10 @@ import Pagination from "@mui/material/Pagination";
 import { useEffect, useState } from "react";
 import MoviesList from "../../shared/components/MoviesList";
 import { AppDispatch, RootState } from "../../redux/store";
-import { handleSearchPageMovies } from "../../redux/reducers/movies/reducers";
+import {
+  handleSearchPageMovies,
+  resetGenresState,
+} from "../../redux/reducers/movies/reducers";
 import * as St from "./styles";
 import { fetchSearchMovies } from "./search";
 
@@ -36,12 +39,17 @@ export default function Search() {
       .catch((err) => console.log(err));
   };
 
+  const handleGoHome = () => {
+    dispatch(resetGenresState());
+    navigate("/home");
+  };
+
   return (
     <St.Container>
       <St.PageTitle>
         <IoArrowUndoSharp
           style={{ cursor: "pointer" }}
-          onClick={() => navigate("/home")}
+          onClick={handleGoHome}
         />
         <span>{pageTitle}</span>
       </St.PageTitle>

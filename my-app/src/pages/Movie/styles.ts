@@ -34,3 +34,28 @@ export const Title = styled.p`
   font-weight: bold;
   font-size: 2rem;
 `;
+
+export const Player = styled.div`
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--light-blue);
+  width: 25%;
+  padding: 1rem;
+
+  > p {
+    font-weight: bold;
+    text-align: center;
+  }
+`;
+
+export const Login = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+
+  > p {
+    font-weight: bold;
+    text-align: center;
+  }
+`;

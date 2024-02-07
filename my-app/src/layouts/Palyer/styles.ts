@@ -3,12 +3,26 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  border: 1px solid var(--light-blue);
-  width: 25%;
-  padding: 1rem;
+  align-items: center;
+  height: 60vh;
+`;
 
-  > p {
-    font-weight: bold;
-    text-align: center;
+export const Tracks = styled.section`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  overflow-y: scroll;
+  padding: 1rem 0;
+
+  a {
+    cursor: pointer;
   }
+`;
+
+export const Title = styled.p`
+  padding-bottom: 1rem;
+  border-bottom: 1px solid;
+  font-size: 1.2rem;
+  text-align: center;
+  color: #bfe8f1;
 `;

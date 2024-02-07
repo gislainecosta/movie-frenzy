@@ -3,7 +3,10 @@ import Pagination from "@mui/material/Pagination";
 import { useDispatch, useSelector } from "react-redux";
 import MoviesList from "../../shared/components/MoviesList";
 import { AppDispatch, RootState } from "../../redux/store";
-import { handleGenrePageMovies } from "../../redux/reducers/movies/reducers";
+import {
+  handleGenrePageMovies,
+  resetGenresState,
+} from "../../redux/reducers/movies/reducers";
 import * as St from "./styles";
 import { fetchGenreMovies } from "./genre";
 
@@ -27,7 +30,10 @@ export default function MoviesGenre() {
   return (
     <St.MoviesGrid>
       <St.PageTitle>
-        <IoArrowUndoSharp style={{ cursor: "pointer" }} />
+        <IoArrowUndoSharp
+          onClick={() => dispatch(resetGenresState())}
+          style={{ cursor: "pointer" }}
+        />
         <span>Filtrado por: {moviesGenre.name}</span>
       </St.PageTitle>
       <MoviesList movies={moviesGenre.genreMovies} />
